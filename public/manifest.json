@@ -1,0 +1,20 @@
+{
+  "short_name": "Ink-Tech Studio",
+  "name": "Ink-Tech Studio",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 48x48 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "60x60 40x40 50x50"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": " #b69538",
+  "background_color": " #b69538"
+}
