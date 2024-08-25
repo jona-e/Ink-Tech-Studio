@@ -32,12 +32,6 @@ const NavbarContainer = styled("div")`
     overflow-x: auto;
     overflow-y: hidden;
     max-width: 100vw;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-    flex: 1 0 0%;
   }
 `;
 
