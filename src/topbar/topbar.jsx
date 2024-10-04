@@ -51,9 +51,7 @@ const Status = observer(({ project }) => {
     <Popover
       content={
         <div style={{ padding: "10px", maxWidth: "300px" }}>
-          {!project.cloudEnabled && (
-            <CloudWarning style={{ padding: "10px" }} />
-          )}
+          {!project.cloudEnabled && <CloudWarning style={{ padding: "0px" }} />}
           {project.cloudEnabled && project.status === "saved" && (
             <>
               You data is saved with{" "}

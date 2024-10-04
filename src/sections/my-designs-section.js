@@ -1,5 +1,5 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
+import React from "react";
+import { observer } from "mobx-react-lite";
 import {
   Button,
   Card,
@@ -8,14 +8,14 @@ import {
   Position,
   Spinner,
   Popover,
-} from '@blueprintjs/core';
+} from "@blueprintjs/core";
 
-import { CloudWarning } from '../cloud-warning';
+import { CloudWarning } from "../cloud-warning";
 
-import { SectionTab } from 'polotno/side-panel';
-import FaFolder from '@meronex/icons/fa/FaFolder';
-import { useProject } from '../project';
-import * as api from '../api';
+import { SectionTab } from "polotno/side-panel";
+import FaFolder from "@meronex/icons/fa/FaFolder";
+import { useProject } from "../project";
+import * as api from "../api";
 
 const DesignCard = observer(({ design, store, onDelete }) => {
   const [loading, setLoading] = React.useState(false);
@@ -37,37 +37,37 @@ const DesignCard = observer(({ design, store, onDelete }) => {
 
   return (
     <Card
-      style={{ margin: '3px', padding: '0px', position: 'relative' }}
+      style={{ margin: "3px", padding: "0px", position: "relative" }}
       interactive
       onClick={() => {
         handleSelect();
       }}
     >
-      <img src={previewURL} style={{ width: '100%' }} />
+      <img src={previewURL} style={{ width: "100%" }} />
       <div
         style={{
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          padding: '3px',
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          padding: "3px",
         }}
       >
-        {design.name || 'Untitled Design'}
+        {design.name || "Untitled Design"}
       </div>
       {loading && (
         <div
           style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
           }}
         >
           <Spinner />
         </div>
       )}
       <div
-        style={{ position: 'absolute', top: '5px', right: '5px' }}
+        style={{ position: "absolute", top: "5px", right: "5px" }}
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -93,7 +93,7 @@ const DesignCard = observer(({ design, store, onDelete }) => {
                 icon="trash"
                 text="Delete"
                 onClick={() => {
-                  if (window.confirm('Are you sure you want to delete it?')) {
+                  if (window.confirm("Are you sure you want to delete it?")) {
                     onDelete({ id: design.id });
                   }
                 }}
@@ -142,7 +142,7 @@ export const MyDesignsPanel = observer(({ store }) => {
   });
 
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <Button
         fill
         intent="primary"
@@ -153,37 +153,37 @@ export const MyDesignsPanel = observer(({ store }) => {
         Create new design
       </Button>
       {!designsLoadings && !designs.length && (
-        <div style={{ paddingTop: '20px', textAlign: 'center', opacity: 0.6 }}>
+        <div style={{ paddingTop: "20px", textAlign: "center", opacity: 0.6 }}>
           You have no saved designs yet...
         </div>
       )}
       {!project.cloudEnabled && (
-        <div style={{ padding: '15px' }}>
+        <div style={{ padding: "15px" }}>
           <CloudWarning />
         </div>
       )}
       {project.cloudEnabled && (
-        <div style={{ padding: '10px', textAlign: 'center' }}>
-          Cloud data saving powered by{' '}
+        <div style={{ padding: "10px", textAlign: "center" }}>
+          Cloud data saving powered by{" "}
           <a href="https://puter.com" target="_blank">
             Puter.com
           </a>
         </div>
       )}
       {designsLoadings && (
-        <div style={{ padding: '30px' }}>
+        <div style={{ padding: "30px" }}>
           <Spinner />
         </div>
       )}
       <div
         style={{
-          display: 'flex',
-          paddingTop: '5px',
-          height: '100%',
-          overflow: 'auto',
+          display: "flex",
+          paddingTop: "5px",
+          height: "100%",
+          overflow: "auto",
         }}
       >
-        <div style={{ width: '50%' }}>
+        <div style={{ width: "50%" }}>
           {half1.map((design) => (
             <DesignCard
               design={design}
@@ -193,7 +193,7 @@ export const MyDesignsPanel = observer(({ store }) => {
             />
           ))}
         </div>
-        <div style={{ width: '50%' }}>
+        <div style={{ width: "50%" }}>
           {half2.map((design) => (
             <DesignCard
               design={design}
@@ -210,7 +210,7 @@ export const MyDesignsPanel = observer(({ store }) => {
 
 // define the new custom section
 export const MyDesignsSection = {
-  name: 'my-designs',
+  name: "my-designs",
   Tab: (props) => (
     <SectionTab name="My Designs" {...props}>
       <FaFolder />

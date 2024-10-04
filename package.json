@@ -2,7 +2,7 @@
   "name": "ink-tech-studio",
   "version": "0.1.1",
   "description": "Free design editor",
-  "private": true,
+ 
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
     "@meronex/icons": "4.0.0",
