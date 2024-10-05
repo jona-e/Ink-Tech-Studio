@@ -1,5 +1,5 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
+import React from "react";
+import { observer } from "mobx-react-lite";
 import {
   Button,
   Dialog,
@@ -9,8 +9,8 @@ import {
   MenuItem,
   MenuDivider,
   Popover,
-} from '@blueprintjs/core';
-import { downloadFile } from 'polotno/utils/download';
+} from "@blueprintjs/core";
+import { downloadFile } from "polotno/utils/download";
 
 export const FileMenu = observer(({ store, project }) => {
   const inputRef = React.useRef();
@@ -35,7 +35,7 @@ export const FileMenu = observer(({ store, project }) => {
               icon="folder-open"
               text="Open"
               onClick={() => {
-                document.querySelector('#load-project').click();
+                document.querySelector("#load-project").click();
               }}
             />
             <MenuItem
@@ -46,12 +46,12 @@ export const FileMenu = observer(({ store, project }) => {
                 const json = store.toJSON();
 
                 const url =
-                  'data:text/json;base64,' +
+                  "data:text/json;base64," +
                   window.btoa(
                     unescape(encodeURIComponent(JSON.stringify(json)))
                   );
 
-                downloadFile(url, 'Untitled Design.json');
+                downloadFile(url, "Untitled Design.json");
               }}
             />
 
@@ -59,37 +59,37 @@ export const FileMenu = observer(({ store, project }) => {
             <MenuItem text="Language" icon="translate">
               <MenuItem
                 text="English"
-                active={project.language.startsWith('en')}
+                active={project.language.startsWith("en")}
                 onClick={() => {
-                  project.setLanguage('en');
+                  project.setLanguage("en");
                 }}
               />
               <MenuItem
                 text="Portuguese"
-                active={project.language.startsWith('pt')}
+                active={project.language.startsWith("pt")}
                 onClick={() => {
-                  project.setLanguage('pt');
+                  project.setLanguage("pt");
                 }}
               />
               <MenuItem
                 text="French"
-                active={project.language.startsWith('fr')}
+                active={project.language.startsWith("fr")}
                 onClick={() => {
-                  project.setLanguage('fr');
+                  project.setLanguage("fr");
                 }}
               />
               <MenuItem
                 text="Russian"
-                active={project.language.startsWith('ru')}
+                active={project.language.startsWith("ru")}
                 onClick={() => {
-                  project.setLanguage('ru');
+                  project.setLanguage("ru");
                 }}
               />
               <MenuItem
                 text="Indonesian"
-                active={project.language.startsWith('id')}
+                active={project.language.startsWith("id")}
                 onClick={() => {
-                  project.setLanguage('id');
+                  project.setLanguage("id");
                 }}
               />
             </MenuItem>
@@ -111,7 +111,7 @@ export const FileMenu = observer(({ store, project }) => {
         id="load-project"
         accept=".json,.polotno"
         ref={inputRef}
-        style={{ width: '180px', display: 'none' }}
+        style={{ width: "180px", display: "none" }}
         onChange={(e) => {
           var input = e.target;
 
@@ -127,18 +127,18 @@ export const FileMenu = observer(({ store, project }) => {
             try {
               json = JSON.parse(text);
             } catch (e) {
-              alert('Can not load the project.');
+              alert("Can not load the project.");
             }
 
             if (json) {
               await project.createNewDesign();
               store.loadJSON(json);
               project.save();
-              input.value = '';
+              input.value = "";
             }
           };
           reader.onerror = function () {
-            alert('Can not load the project.');
+            alert("Can not load the project.");
           };
           reader.readAsText(input.files[0]);
         }}
@@ -149,8 +149,8 @@ export const FileMenu = observer(({ store, project }) => {
         title="About Ink-Tech Studio"
         isOpen={faqOpened}
         style={{
-          width: '80%',
-          maxWidth: '700px',
+          width: "80%",
+          maxWidth: "700px",
         }}
       >
         <div className={Classes.DIALOG_BODY}>
@@ -161,45 +161,52 @@ export const FileMenu = observer(({ store, project }) => {
             social media posts, youtube previews, podcast covers, business cards
             and presentations.
           </p>
-          
+
           <p>
-            Partially. The source code is available in{' '}
-            <a href="https://github.com/lavrton/polotno-studio" target="_blank">
+            Partially. The source code is available in{" "}
+            <a href="https://github.com/jona-e/Ink-Tech-Studio" target="_blank">
               GitHub repository
             </a>
-            . The repository doesn't have full source.{' '}
-            <strong>Ink-Tech Studio</strong> is powered by{' '}
+            . The repository doesn't have full source.{" "}
+            <strong>Ink-Tech Studio</strong> is powered by{" "}
             <a href="https://polotno.com/" target="_blank">
               Polotno SDK project
             </a>
-            . All core "canvas editor" functionality are implemented by{' '}
+            . All core "canvas editor" functionality are implemented by{" "}
             <strong>polotno</strong> npm package (which is not open source at
             the time of writing this text).
           </p>
           <p>
-          Ink-Tech Studio is build on top of Polotno SDK to provide a
+            Ink-Tech Studio is build on top of Polotno SDK to provide a
             desktop-app-like experience.
           </p>
           <h2>Who is founder of Polotno SDK?</h2>
           <p>
-          Ink-Tech Studio is a dynamic and innovative digital studio dedicated to creating cutting-edge 
-          applications that cater to various business needs. The studio focuses on blending creativity 
-          with technology to provide practical and versatile digital solutions.
-          </p>
-          <p>The development of Ink-Tech Studio's latest app was led by the
-          Ink-Tech Printing Services company owner, named Jona, a talented developer known for her technical expertise and 
-          innovative approach to problem-solving. However, the original concept and 
-          creation of the app were spearheaded by Anton Lavrenov, a solo developer, the creative mind
-           behind Ink-Tech Studio. He is passionate about technology and 
-           strives to develop designer tools that can be widely used and that can make a difference
-            in the lives of users and businesses alike.
+            Ink-Tech Studio is a dynamic and innovative digital studio dedicated
+            to creating cutting-edge applications that cater to various business
+            needs. The studio focuses on blending creativity with technology to
+            provide practical and versatile digital solutions.
           </p>
           <p>
-          To encourage the widespread adoption and use of the app, Anton Lavrenov has generously allowed
-          others to use the app freely, for various purposes, including business applications in diverse fields. 
-          By doing so, Anton aims to increase the app's visibility and recognition, 
-          showcasing Ink-Tech Studio's commitment to delivering valuable and versatile designer tools to a broad audience.</p>
-           </div>
+            The development of Ink-Tech Studio's latest app was led by the
+            Ink-Tech Printing Services company owner, named Jona, a talented
+            developer known for her technical expertise and innovative approach
+            to problem-solving. However, the original concept and creation of
+            the app were spearheaded by Anton Lavrenov, a solo developer, the
+            creative mind behind Ink-Tech Studio. He is passionate about
+            technology and strives to develop designer tools that can be widely
+            used and that can make a difference in the lives of users and
+            businesses alike.
+          </p>
+          <p>
+            To encourage the widespread adoption and use of the app, Anton
+            Lavrenov has generously allowed others to use the app freely, for
+            various purposes, including business applications in diverse fields.
+            By doing so, Anton aims to increase the app's visibility and
+            recognition, showcasing Ink-Tech Studio's commitment to delivering
+            valuable and versatile designer tools to a broad audience.
+          </p>
+        </div>
         <div className={Classes.DIALOG_FOOTER}>
           <div className={Classes.DIALOG_FOOTER_ACTIONS}>
             <Button onClick={() => toggleFaq(false)}>Close</Button>
