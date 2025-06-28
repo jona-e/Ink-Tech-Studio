@@ -31,7 +31,7 @@ const isLocalhost =
 const ID = isLocalhost ? LOCAL_ID : PRODUCTION_ID;
 const REDIRECT = isLocalhost
   ? "http://localhost:3000"
-  : "https://studio-app.inktechprinting.services";
+  : "https://ink-tech-studio.vercel.app/";
 
 function Fallback({ error, resetErrorBoundary }) {
   // Call resetErrorBoundary() to reset the error boundary and retry the render.
